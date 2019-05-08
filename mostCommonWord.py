@@ -1,12 +1,20 @@
-import re
+#import re
 
 class Solution:
     def mostCommonWord(self, paragraph, banned):
         wordMap = {}
         
-        paragraph = re.sub('[^A-Za-z]', ' ', paragraph)
+        #paragraph = re.sub('[^A-Za-z]', ' ', paragraph)
         
-        paragraph = paragraph.replace(',', ' ')
+        formalString = ''
+        for c in paragraph:
+            if(c.isalpha()):
+                formalString += c.lower()
+            else:
+                formalString += ' '
+        paragraph = formalString
+        
+        #paragraph = paragraph.replace(',', ' ')
         banned = [w.lower() for w in banned]
         for word in paragraph.lower().split():
             word = word.strip("!?',;.")
