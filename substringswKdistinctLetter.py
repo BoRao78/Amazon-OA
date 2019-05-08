@@ -7,7 +7,7 @@ class Solution:
     def substringwKdistinctLetters(self, s, k):
         # write your code here
         if(k == 0):
-            return 0
+            return []
         distChar = {}
         subString = set([])
         i = 0
