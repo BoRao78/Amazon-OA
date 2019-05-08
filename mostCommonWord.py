@@ -1,6 +1,11 @@
+import re
+
 class Solution:
     def mostCommonWord(self, paragraph, banned):
         wordMap = {}
+        
+        paragraph = re.sub('[^A-Za-z]', ' ', paragraph)
+        
         paragraph = paragraph.replace(',', ' ')
         banned = [w.lower() for w in banned]
         for word in paragraph.lower().split():
